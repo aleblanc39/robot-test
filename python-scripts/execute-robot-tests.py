@@ -23,7 +23,6 @@ def main():
     parser.add_argument("--top-directory", dest='top_directory', nargs='+')
     parser.add_argument("--relative-filename", dest="relative_filename", nargs="+")
     parser.add_argument("--project-name", dest="project_name", nargs='+')
-    parser.add_argument("--environment", dest="environment", required=True)
     parser.add_argument("--single-test", action="store_true")
     args = parser.parse_args()
 
@@ -44,8 +43,6 @@ def main():
         "INFO",
         "--debugfile",
         debug_file,
-        '--variable',
-        "ENVIRONMENT:" + args.environment,
         '--suite',
         suite_name
     ]
