@@ -1,3 +1,9 @@
+*** Settings ***
+
+Resource     SuiteKeywords.robot
+
+
+
 *** Test Cases ***
 
 My First Test
