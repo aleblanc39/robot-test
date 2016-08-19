@@ -1,5 +1,26 @@
 #!/usr/bin/env python
 
+"""
+
+This script will execute tests written in the Robot Framework. It was designed
+to make it easy to execute the tests from the PyCharm IDE. To erxecute from PyCharm
+you first need to condigure the IDE as follows:
+
+1) Go to File->Settings->Tools->External Tools
+2) Your will define two new tools, one for running a single test, and one for all the tests in the suite. The only difference
+   between the two will be the *name* and *parameter* entries.
+   a) For running a single test, use these values in the **Tool Settings** section at the bottom
+      Program: Python
+      Parameters: [path-to-script]/execute-robot-tests.py --filename $FilePath$ --line-no $LineNumber$ --top-directory $ProjectFileDir$ --relative-filename $FilePathRelativeToProjectRoot$  --project-name $ProjectName$
+      Working Directory: ${ProjectFileDir}
+   b) For running all the tests in a suite, assign a different name and update the parameters entry to:
+       Parameters: [path-to-script]/execute-robot-tests.py --filename $FilePath$ --line-no $LineNumber$ --top-directory $ProjectFileDir$ --relative-filename $FilePathRelativeToProjectRoot$  --project-name $ProjectName$ --single-test
+
+3) To execute a single test right-click anywhere in the code for this test, go to *external tools* and select the appropriate tool based on
+   the name that yuou assigned. To run a test on the whole suite click anywhere in the file.
+
+"""
+
 import subprocess
 import argparse
 from os import chdir
